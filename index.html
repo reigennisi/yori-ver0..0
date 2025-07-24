@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>負荷法倉庫</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ブロックの先へ</h1>
+  
+  <button onclick="openTabs()">コードエディタを開く</button>
+  <button onclick="openAndWrite()">コードタブを開く</button>
+
+  <script>
+    let youtube = "https://www.youtube.com/?app=desktop&hl=ja";
+    let 初期URL = "chrome-extension://jbddgjglgkkneonnineaohdhabjbgopi/pages/message-page.html?mode=blocked&category=908";
+    let エディタ = "https://vscode.dev/?vscode-lang=ja";
+
+    function openTabs() {
+      const baseUrl = エディタ;
+      for (let i = 1; i <= 1; i++) {
+        const url = `${baseUrl}?id=${i}`;
+        window.open(url, '_blank');
+      }
+    }
+
+    function openAndWrite() {
+      const newTab = window.open();
+      newTab.document.write(`
+      <!DOCTYPE html>
+          <html>
+          <head>
+            <title>コード</title>
+          </head>
+          <body>
+            <h1>コード</h1>
+            <p>このコードをコピーしたら前のページに戻りエディタに飛んで適当なHTMLにぶち込んで使用してください</p>
+            <pre><code>
+      &lt;!DOCTYPE html&gt;
+      &lt;html lang=&quot;ja&quot;&gt;
+      &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;負荷咆&lt;/title&gt;
+        &lt;style&gt;
+          body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+          }
+          button {
+            padding: 15px 30px;
+            font-size: 16px;
+          }
+        &lt;/style&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;本当に押していいのか&lt;/h1&gt;
+        &lt;button onclick=&quot;openTabs()&quot;&gt;タブを開く&lt;/button&gt;
+      
+        &lt;script&gt;
+        //こんにちは、この文に気づきましたか？修正部分をこの色の文字で説明します。
+        let youtube = &quot;https://www.youtube.com/?app=desktop&amp;hl=ja&quot;;
+        let 初期URL = &quot;chrome-extension://jbddgjglgkkneonnineaohdhabjbgopi/pages/message-page.html?mode=blocked&amp;category=908&quot;;
+      
+        function openTabs() {
+          const baseUrl = youtube;
+          for (let i = 1; i &lt;= 40; i++) {
+            const url = baseUrl + &quot;?id=&quot; + i;
+            window.open(url, '_blank');
+          }
+        }
+        &lt;/script&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+            </code></pre>
+          </body>
+          </html>
+      
+      
+      `);
+      newTab.document.close();
+    }
+  </script>
+</body>
+</html>
